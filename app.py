@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+    app.logger.info("[index]")
     return render_template('index.html', **locals())
 
 
