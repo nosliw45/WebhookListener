@@ -11,7 +11,7 @@ def index():
 
 @app.route('/chatbot', methods=["GET", "POST"])
 def chatbotResponse():
-    app.logger.setLevel(logging.DEBUG)
+    # app.logger.setLevel(logging.DEBUG)
     app.logger.info("[chatbotResponse]")
     
     if request.method == 'POST':
