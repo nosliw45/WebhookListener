@@ -1,10 +1,16 @@
 #Ref: https://flask.palletsprojects.com/en/2.0.x/quickstart/
 #Ref: https://hackersandslackers.com/flask-routes/
 #Import the Flask class and related functions used in this app
-from flask import Flask, request, redirect, url_for, render_template
+from flask import Flask, request, redirect, url_for, render_template, Response
 
 #Create an instance of the Flask class and call it as the name 'app'
 app = Flask(__name__)
+
+@app.route('/webhook', methods=['POST'])
+def respond():
+  print(request.json);
+  return Response(status=200)
+
 
 #app.route("/") is call to the root URL and will execute the codes in the 'home' view function
 @app.route("/")
