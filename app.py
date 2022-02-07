@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, request, session
+import logging
 
 app = Flask(__name__)
 
@@ -10,7 +11,8 @@ def index():
 
 @app.route('/chatbot', methods=["GET", "POST"])
 def chatbotResponse():
-
+    app.logger.info("[chatbotResponse]")
+    
     if request.method == 'POST':
         the_question = request.form['question']
         #[response, tempName] = processor.chatbot_response(the_question, sessionName)
