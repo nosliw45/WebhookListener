@@ -14,6 +14,9 @@ def chatbotResponse():
     # app.logger.setLevel(logging.DEBUG)
     app.logger.info("[chatbotResponse]")
     
+    if request.method == 'GET':
+        return "You sent a GET request"
+    
     if request.method == 'POST':
         the_question = request.form['question']
         #[response, tempName] = processor.chatbot_response(the_question, sessionName)
