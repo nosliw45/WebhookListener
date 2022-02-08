@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, session, logging
+from flask import Flask, render_template, jsonify, request, session, logging, Response
 
 app = Flask(__name__)
 
@@ -18,7 +18,8 @@ def chatbotResponse():
         the_question = request.form['question']
         #[response, tempName] = processor.chatbot_response(the_question, sessionName)
 
-    return jsonify({"response": "this is a hard-coded response from Wilson" })
+    # return jsonify({"response": "this is a hard-coded response from Wilson" })
+    return Response(status=200)
 
 
 
