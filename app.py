@@ -25,11 +25,14 @@ def chatbotResponse():
         #the_question = request.form['question']
         #[response, tempName] = processor.chatbot_response(the_question, sessionName)
     
+    print(f"Json data = {request.json}")
+    
+    fp = open("data.txt", "wb")
+    fp.write(request.json)
     
     # return jsonify({"response": "this is a hard-coded response from Wilson" })
     # return Response(status=200)
-    print(f"Json data = {request.json}")
-    return request.json
+   return request.json
 
 
 
