@@ -24,6 +24,7 @@ def chatbotResponse():
         return "You sent an unknown request type"
     '''
     
+    quizResults = None
     quizResults = request.json
     
     print(f"Json data = {request.json}")
@@ -38,7 +39,7 @@ def chatbotResponse():
 def getQuizResults():
     global quizResults
 
-    print(quizResults)
+    # print(quizResults)
     return quizResults
 
 
