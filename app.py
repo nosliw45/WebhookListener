@@ -15,6 +15,7 @@ def index():
 def chatbotResponse():
     global quizResults
         
+    '''
     if request.method == 'GET':
         return "You sent a GET request"
     elif request.method == 'POST':
