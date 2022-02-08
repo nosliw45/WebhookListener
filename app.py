@@ -16,9 +16,13 @@ def chatbotResponse():
     
     if request.method == 'GET':
         return "You sent a GET request"
+    elif request.method == 'POST':
+        return "You sent a POST request"
+    else:
+        return "You sent an unknown request type"
     
-    if request.method == 'POST':
-        the_question = request.form['question']
+    #if request.method == 'POST':
+        #the_question = request.form['question']
         #[response, tempName] = processor.chatbot_response(the_question, sessionName)
 
     # return jsonify({"response": "this is a hard-coded response from Wilson" })
