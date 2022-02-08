@@ -2,6 +2,8 @@ from flask import Flask, render_template, jsonify, request, session, logging, Re
 
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = 'enter-a-very-secretive-key-3479373'
+
 quizResults = None
 
 @app.route('/', methods=["GET", "POST"])
