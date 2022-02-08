@@ -2,6 +2,8 @@ from flask import Flask, render_template, jsonify, request, session, logging, Re
 
 app = Flask(__name__)
 
+quizResults = None
+
 @app.route('/', methods=["GET", "POST"])
 def index():
     app.logger.info("[index]")
@@ -11,6 +13,7 @@ def index():
 
 @app.route('/webhook', methods=["GET", "POST"])
 def chatbotResponse():
+    global quizResults
         
     '''
     if request.method == 'GET':
@@ -21,19 +24,20 @@ def chatbotResponse():
         return "You sent an unknown request type"
     '''
     
-    #if request.method == 'POST':
-        #the_question = request.form['question']
-        #[response, tempName] = processor.chatbot_response(the_question, sessionName)
+    quizResults = request.json
     
     print(f"Json data = {request.json}")
-    
-    with open("data.txt", "w") as fp:
-        fp.write("abcd")
-    
+           
     # return jsonify({"response": "this is a hard-coded response from Wilson" })
     # return Response(status=200)
    return request.json
 
+@app.route('/quizresults', methods=["GET", "POST"])
+def getQuizResults():
+    global quizResults
+
+    print(quizResults)
+    return quizResults
 
 
 if __name__ == '__main__':
