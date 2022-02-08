@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'enter-a-very-secretive-key-3479373'
 
-quizResults = None
+# quizResults = None
+app.config['quizResults'] = None
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -24,8 +25,9 @@ def chatbotResponse():
         return "You sent an unknown request type"
     '''
     
-    quizResults = None
-    quizResults = request.json
+    # quizResults = None
+    # quizResults = request.json
+    app.config['quizResults'] = request.json
     
     print(f"Json data = {request.json}")
            
@@ -40,7 +42,8 @@ def getQuizResults():
     global quizResults
 
     # print(quizResults)
-    return quizResults
+    # return quizResults
+    return app.config['quizResults']
 
 
 if __name__ == '__main__':
