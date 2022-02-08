@@ -27,8 +27,8 @@ def chatbotResponse():
     
     print(f"Json data = {request.json}")
     
-    fp = open("data.txt", "wb")
-    fp.write(request.json)
+    with open("data.txt", "w") as fp:
+        fp.write("abcd")
     
     # return jsonify({"response": "this is a hard-coded response from Wilson" })
     # return Response(status=200)
