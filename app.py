@@ -2,13 +2,12 @@ from flask import Flask, render_template, jsonify, request, session, logging, Re
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'enter-a-very-secretive-key-3479373'
+#app.config['SECRET_KEY'] = 'enter-a-very-secretive-key-3479373'
 
 quizResults = None
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    app.logger.info("[index]")
     return render_template('index.html', **locals())
 
 
@@ -34,13 +33,14 @@ def chatbotResponse():
     # return Response(status=200)
    return request.json
 
+'''
 @app.route('/quizresults', methods=["GET", "POST"])
 def getQuizResults():
     global quizResults
 
     print(quizResults)
     return quizResults
-
+'''
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='8888', debug=True)
