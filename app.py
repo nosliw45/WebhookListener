@@ -9,11 +9,9 @@ def index():
 
 
 
-@app.route('/chatbot', methods=["GET", "POST"])
+@app.route('/webhook', methods=["GET", "POST"])
 def chatbotResponse():
-    # app.logger.setLevel(logging.DEBUG)
-    app.logger.info("[chatbotResponse]")
-    
+        
     '''
     if request.method == 'GET':
         return "You sent a GET request"
@@ -26,9 +24,11 @@ def chatbotResponse():
     #if request.method == 'POST':
         #the_question = request.form['question']
         #[response, tempName] = processor.chatbot_response(the_question, sessionName)
-
+    
+    
     # return jsonify({"response": "this is a hard-coded response from Wilson" })
     # return Response(status=200)
+    print(f"Json data = {request.json}")
     return request.json
 
 
