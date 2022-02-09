@@ -43,7 +43,11 @@ def getQuizResults():
 
     # print(quizResults)
     # return quizResults
-    return app.config['quizResults']
+    
+    if app.config['quizResults'] == None:
+        return "No results"
+    else:
+        return app.config['quizResults']
 
 
 if __name__ == '__main__':
