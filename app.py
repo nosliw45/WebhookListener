@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, request, session, logging, Response
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -39,13 +40,11 @@ def chatbotResponse():
 
 @app.route('/quizresults', methods=["GET", "POST"])
 def getQuizResults():
-    global quizResults
-
-    # print(quizResults)
-    # return quizResults
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     
     if app.config['quizResults'] == None:
-        return "No results"
+        return f"[{dt_string}] No results"
     else:
         return app.config['quizResults']
 
